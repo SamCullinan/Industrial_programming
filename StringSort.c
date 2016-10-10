@@ -8,20 +8,20 @@
 //Ôóíêöèè
 
 void controlpanel (  );
-void print            ( int n, char **end  );
-void greetprint     ( );
-int  compare       ( char *text1, char*text2, int a = 0, int b = 0, int f );
-void quickSort     ( char **end, int l, int r, int * end1,int f ) ;
-void quickSort     ( char **end, int l, int r, int f );
-int mystrlen        ( char **end, char *text, unsigned int size_of_file );
-int readsize        ( char *text );
-int* endstr          ( char **end, int n );
+void print        ( int n, char **end  );
+void greetprint   ( );
+int  compare      ( char *text1, char*text2, int a = 0, int b = 0, int f );
+void quickSort    ( char **end, int l, int r, int * end1,int f ) ;
+void quickSort    ( char **end, int l, int r, int f );
+int mystrlen      ( char **end, char *text, unsigned int size_of_file );
+int readsize      ( char *text );
+int* endstr       ( char **end, int n );
 
 int main ( )
 {
     setlocale ( LC_ALL, "Rus" );
 
-	greetprint   ( );
+    greetprint   ( );
 
     controlpanel ( );
 
@@ -32,20 +32,20 @@ int main ( )
 void controlpanel (  ) {
 
 //Ïåðåìåííûå
-int FLAG  = 0;
-int control  = 0;
-int size     = 0;
+int FLAG      = 0;
+int control   = 0;
+int size      = 0;
 int len       = 0;
 
 scanf( "%d",&control );
 
  //Ìàññèâû
-char  *text    =    ( char* )  malloc ( sizeof ( text ) );
-char  **beg   =    ( char** )  malloc ( sizeof ( *beg ) );
-int *end        =    ( int* )  malloc ( sizeof ( end ) );
+char  *text       = ( char* )  malloc ( sizeof ( text ) );
+char  **beg       = ( char**)  malloc ( sizeof ( *beg ) );
+int   *end        = ( int*  )  malloc ( sizeof ( end ) );
 
 size = readsize ( text );
-len = mystrlen ( beg , text, size );
+len  = mystrlen ( beg , text, size );
 
 //Îðèãèíàëüíûé òåêñò
 if ( control == 1 )
