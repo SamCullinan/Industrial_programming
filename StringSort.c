@@ -6,7 +6,8 @@
 #include "io.h"
 #include <iostream>
 
-//Функции
+//Г”ГіГ­ГЄГ¶ГЁГЁ
+
 void controlpanel (  );
 void print            ( int n, char **end  );
 void greetprint     ( );
@@ -25,12 +26,13 @@ int main ( )
 
     controlpanel ( );
 
-	printf("Сэр, работу выполнил успешно.\nПроверьте файл,я записал вам все туда.\nУдачи,Сэр.\n ");
+	printf("Г‘ГЅГ°, Г°Г ГЎГ®ГІГі ГўГ»ГЇГ®Г«Г­ГЁГ« ГіГ±ГЇГҐГёГ­Г®.\nГЏГ°Г®ГўГҐГ°ГјГІГҐ ГґГ Г©Г«,Гї Г§Г ГЇГЁГ±Г Г« ГўГ Г¬ ГўГ±ГҐ ГІГіГ¤Г .\nГ“Г¤Г Г·ГЁ,Г‘ГЅГ°.\n ");
 	return 0;
 }
 
 void controlpanel (  ) {
-//Переменные
+
+//ГЏГҐГ°ГҐГ¬ГҐГ­Г­Г»ГҐ
 int FLAG  = 0;
 int control  = 0;
 int size     = 0;
@@ -38,7 +40,7 @@ int len       = 0;
 
 scanf( "%d",&control );
 
- //Массивы
+ //ГЊГ Г±Г±ГЁГўГ»
 char  *text    =    ( char* )  malloc ( sizeof ( text ) );
 char  **beg   =    ( char** )  malloc ( sizeof ( *beg ) );
 int *end        =    ( int* )  malloc ( sizeof ( end ) );
@@ -46,14 +48,14 @@ int *end        =    ( int* )  malloc ( sizeof ( end ) );
 size = readsize ( text );
 len = mystrlen ( beg , text, size );
 
-//Оригинальный текст
+//ГЋГ°ГЁГЈГЁГ­Г Г«ГјГ­Г»Г© ГІГҐГЄГ±ГІ
 if ( control == 1 )
 	{
         print( len, beg );
 
 	}
 
-// Евгений Онегин
+// Г…ГўГЈГҐГ­ГЁГ© ГЋГ­ГҐГЈГЁГ­
 else	if ( control == 2 )
 	{
         FLAG = -1;
@@ -61,7 +63,7 @@ else	if ( control == 2 )
 		print( len, beg );
 	}
 
- //Cортирвка с конца
+ //CГ®Г°ГІГЁГ°ГўГЄГ  Г± ГЄГ®Г­Г¶Г 
 else	if ( control == 3)
 	{
 
@@ -70,29 +72,29 @@ else	if ( control == 3)
     quickSort ( beg, 0, len, end, FLAG);
 	print ( len, beg );
 	}
-	else printf ( "Неправильный ввод числа!" );
+	else printf ( "ГЌГҐГЇГ°Г ГўГЁГ«ГјГ­Г»Г© ГўГўГ®Г¤ Г·ГЁГ±Г«Г !" );
 }
 
-//Считывание
+//Г‘Г·ГЁГІГ»ГўГ Г­ГЁГҐ
 int readsize (char *text)
 {
 	long size_of_file = 0;
-    //Открытие поток
+    //ГЋГІГЄГ°Г»ГІГЁГҐ ГЇГ®ГІГ®ГЄ
 	FILE  *in = fopen ( "file.txt", "r" );
 	assert( in );
-    //Размер файла
+    //ГђГ Г§Г¬ГҐГ° ГґГ Г©Г«Г 
 	fseek( in, 0, SEEK_END );
 	size_of_file = ftell( in );
 	rewind( in );
 	text = ( char* ) realloc ( text, sizeof(char) * size_of_file );
-	//Считывание
+	//Г‘Г·ГЁГІГ»ГўГ Г­ГЁГҐ
 	fread ( text, 1, size_of_file, in );
 
 	fclose ( in );
 	return size_of_file;
 }
 
-//  Нахождение конца строк
+//ГЌГ ГµГ®Г¦Г¤ГҐГ­ГЁГҐ ГЄГ®Г­Г¶Г  Г±ГІГ°Г®ГЄ
 int* endstr ( char **end, int n ) {
 
 	int* end1 = ( int* ) malloc ( sizeof ( end1 )*( n + 1) );
@@ -111,7 +113,7 @@ int* endstr ( char **end, int n ) {
 	return end1;
 }
 
-//Нахождение кол-во  строк
+//ГЌГ ГµГ®Г¦Г¤ГҐГ­ГЁГҐ ГЄГ®Г«-ГўГ®  Г±ГІГ°Г®ГЄ
 int mystrlen( char **end, char *text, unsigned int size_of_file )
 {
 
@@ -131,7 +133,7 @@ int mystrlen( char **end, char *text, unsigned int size_of_file )
 	return n;
 }
 
-//Печать
+//ГЏГҐГ·Г ГІГј
 void print ( int n, char **end )
 {
 	FILE *out = fopen ( "out.txt", "w" );
@@ -148,16 +150,16 @@ void print ( int n, char **end )
  //Welcom,Guest!
 void greetprint ( ) {
 
-	printf("Вас приветствует программа 'Стихомания v1.2' @Samir\n\n");
-	printf("Нажмите 1,  если хотите записать в файл оригинальный  текст\n");
-	printf("Нажмите 2,  если хотите применить сортировку 'Евгений Онегин'\n");
-	printf("Нажмите 3,  если хотите сделать словарь рифм\n");
-	printf("Нажмите любую другую для того,чтобы выйти\n\n\n");
+	printf("Г‚Г Г± ГЇГ°ГЁГўГҐГІГ±ГІГўГіГҐГІ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г  'Г‘ГІГЁГµГ®Г¬Г Г­ГЁГї v1.2' @Samir\n\n");
+	printf("ГЌГ Г¦Г¬ГЁГІГҐ 1,  ГҐГ±Г«ГЁ ГµГ®ГІГЁГІГҐ Г§Г ГЇГЁГ±Г ГІГј Гў ГґГ Г©Г« Г®Г°ГЁГЈГЁГ­Г Г«ГјГ­Г»Г©  ГІГҐГЄГ±ГІ\n");
+	printf("ГЌГ Г¦Г¬ГЁГІГҐ 2,  ГҐГ±Г«ГЁ ГµГ®ГІГЁГІГҐ ГЇГ°ГЁГ¬ГҐГ­ГЁГІГј Г±Г®Г°ГІГЁГ°Г®ГўГЄГі 'Г…ГўГЈГҐГ­ГЁГ© ГЋГ­ГҐГЈГЁГ­'\n");
+	printf("ГЌГ Г¦Г¬ГЁГІГҐ 3,  ГҐГ±Г«ГЁ ГµГ®ГІГЁГІГҐ Г±Г¤ГҐГ«Г ГІГј Г±Г«Г®ГўГ Г°Гј Г°ГЁГґГ¬\n");
+	printf("ГЌГ Г¦Г¬ГЁГІГҐ Г«ГѕГЎГіГѕ Г¤Г°ГіГЈГіГѕ Г¤Г«Гї ГІГ®ГЈГ®,Г·ГІГ®ГЎГ» ГўГ»Г©ГІГЁ\n\n\n");
 	printf("\n") ;
 
 }
 
-//Быстрая сортировка
+//ГЃГ»Г±ГІГ°Г Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГ 
 void quickSort ( char **end, int l, int r, int * end1,int f )
 {
 
@@ -206,7 +208,7 @@ void quickSort ( char **end, int l, int r, int * end1,int f )
 	}
 }
 
-//Сравнение символов  в строках
+//Г‘Г°Г ГўГ­ГҐГ­ГЁГҐ Г±ГЁГ¬ГўГ®Г«Г®Гў  Гў Г±ГІГ°Г®ГЄГ Гµ
 int compare ( char *Text1, char* Text2, int len1 = 0, int len2 = 0, int f = -1 )
 {
     int compare  = 0;
