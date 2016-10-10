@@ -4,7 +4,6 @@
 #include <assert.h>
 #include <locale.h>
 #include "io.h"
-#include <iostream>
 
 //Ôóíêöèè
 
