@@ -39,7 +39,7 @@ int len       = 0;
 
 scanf( "%d",&control );
 
- //Ìàññèâû
+//Ìàññèâû
 char  *text       = ( char* )  malloc ( sizeof ( text ) );
 char  **beg       = ( char**)  malloc ( sizeof ( *beg ) );
 int   *end        = ( int*  )  malloc ( sizeof ( end ) );
@@ -62,7 +62,7 @@ else	if ( control == 2 )
 		print( len, beg );
 	}
 
- //Cîðòèðâêà ñ êîíöà
+//Cîðòèðâêà ñ êîíöà
 else	if ( control == 3)
 	{
 
@@ -78,10 +78,10 @@ else	if ( control == 3)
 int readsize (char *text)
 {
 	long size_of_file = 0;
-    //Îòêðûòèå ïîòîê
+        //Îòêðûòèå ïîòîê
 	FILE  *in = fopen ( "file.txt", "r" );
 	assert( in );
-    //Ðàçìåð ôàéëà
+        //Ðàçìåð ôàéëà
 	fseek( in, 0, SEEK_END );
 	size_of_file = ftell( in );
 	rewind( in );
@@ -169,9 +169,8 @@ void quickSort ( char **end, int l, int r, int * end1,int f )
     int j = r;
     while ( i <= j )
    {
-
         while ( ( compare ( end[ i ], end[ ( l + r ) / 2 ], end1[ i ], end1 [ ( r + l ) / 2 ] ,f )  < 0 ) && ( i < r ) ) i++;
-        while ( ( compare ( end[ j ], end[ ( l + r ) / 2 ], end1[ j ], end1 [ ( l + r ) / 2 ] ,f )  > 0 ) && ( j > l ) ) j--;
+        while ( ( compare ( end[ j ], end[ ( l + r ) / 2 ], end1[ j ], end1 [ ( l + r ) / 2 ] ,f )  > 0 ) && ( j > l ) ) j--;  
         if    ( i <= j )
         {
 			if ( f == -1 )
@@ -208,7 +207,7 @@ void quickSort ( char **end, int l, int r, int * end1,int f )
 }
 
 //Ñðàâíåíèå ñèìâîëîâ  â ñòðîêàõ
-int compare ( char *Text1, char* Text2, int len1 = 0, int len2 = 0, int f = -1 )
+int compare ( char *Text1, char* Text2, int len1 = 0, int len2 = 0, int f )
 {
     int compare  = 0;
     int count1     = 0;
