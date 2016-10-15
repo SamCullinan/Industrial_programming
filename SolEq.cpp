@@ -28,6 +28,8 @@ int main ()
     printf ( " \n " );
 
     int nRoots = SolEq ( a, b, c, &x1, &x2 );
+
+    // Как я уже говорил, вынеси switch в отдельную функцию.
     switch ( nRoots ) 
 		{
 

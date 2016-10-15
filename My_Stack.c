@@ -3,9 +3,12 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <cstring>
-#include <ctime>                     
-#include <clocale> 
+#include <ctime>
+#include <clocale>
 
+
+//! Названия макросов лучше писать только большими буквами, чтобы издалека
+//! было видно, что это.
 #define Stack_dump( This ) _Stack_dump( This, #This );
 #define Assert_OK( This ) if( !Stack_OK( This ) ) Stack_dump( This );
 
@@ -19,7 +22,7 @@ typedef struct Stack
 	int protection2;
 	type* prot_Date;
 	type hash;
-	
+
 } Stack_t;
 
 /*Константы*/
@@ -36,6 +39,7 @@ int  Stack_push      ( Stack_t *This, int value );
 type Stack_pop       ( Stack_t *This );
 
 bool Stack_OK        ( const Stack_t *This );
+//! Почему _Stack_dump выделен _ спереди?
 void _Stack_dump     ( Stack_t *This, char* stk );
 bool Stack_Rehash    ( const Stack *This );
 
@@ -64,14 +68,16 @@ int main()
 int Stack_construct ( Stack_t * This, int size )
 {
 	assert ( This );
-	
+
+	/* Проверять стек в начале конструктора на правильность не нужно. */
 	if ( !Stack_OK ( This ) ) {
 		This -> protection1 = 255;
 
 		This -> data = ( type* ) calloc( size, sizeof( *This -> data ) );
+
 		for (int i = 0; i < size; i++)
 			This -> data[i] = Daterror;
-			
+
 		This -> max   = size;
 		This -> count = 0;
 
@@ -94,11 +100,20 @@ int Stack_construct ( Stack_t * This, int size )
 int  Stack_destruct ( Stack_t * This )
 {
 	assert ( This );
+
+	/* Вот эту логику я бы немного исправил: если тебе в дестрктор пришёл
+	   запорченный стек, то это повод завершить программу, так как
+	   если с ним что-то не так, то возможно и данные храгнятся не там.
+	   А если ты вызовешь free() от указателя, который не заказывался аллокатором,
+		 то вся прога упадёт без диагностики.
+		 Лучше уж ты её завершишь, зато со всей нужной информацией.
+	*/
 	if ( Stack_OK ( This ) )
 	{
-		This -> max = 0;
+		This -> max   = 0;
 		This -> count = Error_pos;
-		This -> hash = 0;
+		This -> hash  = 0;
+
 		if ( This -> data != NULL )
 		{
 			free ( ( This -> data ) );
@@ -116,8 +131,11 @@ int  Stack_push ( Stack_t * This, int value )
 {
 	assert ( Stack_OK ( This ) );
 
+	/* У тебя нет никакой проверки на то, что стек заполнен к моменту пуша.
+	Если ты обратишься к памяти, которую ты не заказывал,
+	прога может упасть без диагностики */
 	This -> data [ This -> count++ ] = value;
-	
+
 	assert ( Stack_OK ( This ) );
 	return 0;
 }
@@ -126,6 +144,7 @@ type Stack_pop ( Stack_t * This )
 {
 	assert ( Stack_OK ( This ) );
 
+	/* То же самое, что и с пушем. */
 	This -> count--;
 	type top = This -> data[This -> count];
 	This -> data[This -> count] = Daterror;
@@ -159,6 +178,7 @@ void _Stack_dump ( Stack_t *This, char* stk )
 	printf ( "data[%d] = [%p]\n", This->max, This->data );
 	printf ( " {\n" );
 
+	//! Будь здесь аккуратен, обращение по нулевому указателю дропает программу.
 	for ( int i = 0; i < This -> max; i++ )
 	{
 		if ( i < This -> count )
