@@ -5,7 +5,7 @@
 
 // doxygen.org
 
-//! This constant is the one in the world!!!111!!!111
+//! This constant is the one in the world!!!111!!!111!!!111
 //! @warning Do not use it!!!!
 
 const int    INF_Roots = -1 ;
@@ -22,7 +22,7 @@ int main ()
     double a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
 
     printf ( " #Solution of Equation v.1.0(c) Samir, 22.09.2016\n " );
-    printf ( " #Введите a, b, c: \n " );
+    printf ( " #Г‚ГўГҐГ¤ГЁГІГҐ a, b, c: \n " );
 
     scanf  ( "%lg %lg %lg", &a, &b, &c );
     printf ( " \n " );
@@ -36,12 +36,12 @@ int main ()
                      break;
             case  1: printf ( " x = %lg\n "  ,x1 );
                      break;
-            case  0: printf ( " Нет решения " );
+            case  0: printf ( " ГЌГҐГІ Г°ГҐГёГҐГ­ГЁГї " );
                      break;
-            case -1: printf ( " Множество решений " );
+            case -1: printf ( " ГЊГ­Г®Г¦ГҐГ±ГІГўГ® Г°ГҐГёГҐГ­ГЁГ© " );
                      break;
 
-            default: printf ( " nRoots не равен ни одному варианту. Совет: Проверить переменные " );
+            default: printf ( " nRoots Г­ГҐ Г°Г ГўГҐГ­ Г­ГЁ Г®Г¤Г­Г®Г¬Гі ГўГ Г°ГЁГ Г­ГІГі. Г‘Г®ГўГҐГІ: ГЏГ°Г®ГўГҐГ°ГЁГІГј ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»ГҐ " );
                      break;
         }
     return 0;
