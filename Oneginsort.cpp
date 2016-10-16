@@ -34,7 +34,7 @@ int main()
 	begstr( beg, buf );
 
 	guestcontrol = greetprint ( );
-    control ( guestcontrol, beg, nstr );
+        control ( guestcontrol, beg, nstr );
 
 	return 0;
 }
@@ -42,39 +42,40 @@ int main()
 void control( int control, char** beg, int nstr )
 {
 switch ( control )
-	{
+     {
 	case 1:
 		print  ( beg, nstr );
-		printf ( "\nЯ успешно выполнил свою задачу=)\nПока!!!\n" );
+		printf ( "\nГџ ГіГ±ГЇГҐГёГ­Г® ГўГ»ГЇГ®Г«Г­ГЁГ« Г±ГўГ®Гѕ Г§Г Г¤Г Г·Гі=)\nГЏГ®ГЄГ !!!\n" );
 		break;
 
 	case 2:
 		qsort  ( beg, nstr, sizeof(char*), compare );
 		print  ( beg, nstr );
-        printf ( "\nЯ успешно выполнил свою задачу=)\nПока!!!\n" );
+                printf ( "\nГџ ГіГ±ГЇГҐГёГ­Г® ГўГ»ГЇГ®Г«Г­ГЁГ« Г±ГўГ®Гѕ Г§Г Г¤Г Г·Гі=)\nГЏГ®ГЄГ !!!\n" );
 		break;
 
 	case 3:
 		qsort  ( beg, nstr, sizeof( char* ), compare_end );
 		print  ( beg, nstr );
-        printf ( "\nЯ успешно выполнил свою задачу=)\nПока!!!\n" );
+                printf ( "\nГџ ГіГ±ГЇГҐГёГ­Г® ГўГ»ГЇГ®Г«Г­ГЁГ« Г±ГўГ®Гѕ Г§Г Г¤Г Г·Гі=)\nГЏГ®ГЄГ !!!\n" );
 		break;
 
 	default:
-        printf ( "\nВы вышли из программы!!!\n" );
-        printf ( "Я остался без работы =)\n" );
-        break;
-	}
+			
+                printf ( "\nГ‚Г» ГўГ»ГёГ«ГЁ ГЁГ§ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»!!!\n" );
+                printf ( "Гџ Г®Г±ГІГ Г«Г±Гї ГЎГҐГ§ Г°Г ГЎГ®ГІГ» =)\n" );
+                break;
+     }
 }
 int greetprint ( )
 {
 	int control = 0;
 
-	printf ( "Вас приветствует программа 'Стихомания v1.2' @Samir\n\n" );
-	printf ( "Нажмите 1,  если хотите записать в файл оригинальный  текст\n"   );
-	printf ( "Нажмите 2,  если хотите применить сортировку 'Евгений Онегин'\n" );
-	printf ( "Нажмите 3,  если хотите сделать словарь рифм\n"  );
-	printf ( "Нажмите любую другую для того,чтобы выйти\n\n\n" );
+	printf ( "Г‚Г Г± ГЇГ°ГЁГўГҐГІГ±ГІГўГіГҐГІ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г  'Г‘ГІГЁГµГ®Г¬Г Г­ГЁГї v1.2' @Samir\n\n" );
+	printf ( "ГЌГ Г¦Г¬ГЁГІГҐ 1,  ГҐГ±Г«ГЁ ГµГ®ГІГЁГІГҐ Г§Г ГЇГЁГ±Г ГІГј Гў ГґГ Г©Г« Г®Г°ГЁГЈГЁГ­Г Г«ГјГ­Г»Г©  ГІГҐГЄГ±ГІ\n"   );
+	printf ( "ГЌГ Г¦Г¬ГЁГІГҐ 2,  ГҐГ±Г«ГЁ ГµГ®ГІГЁГІГҐ ГЇГ°ГЁГ¬ГҐГ­ГЁГІГј Г±Г®Г°ГІГЁГ°Г®ГўГЄГі 'Г…ГўГЈГҐГ­ГЁГ© ГЋГ­ГҐГЈГЁГ­'\n" );
+	printf ( "ГЌГ Г¦Г¬ГЁГІГҐ 3,  ГҐГ±Г«ГЁ ГµГ®ГІГЁГІГҐ Г±Г¤ГҐГ«Г ГІГј Г±Г«Г®ГўГ Г°Гј Г°ГЁГґГ¬\n"  );
+	printf ( "ГЌГ Г¦Г¬ГЁГІГҐ Г«ГѕГЎГіГѕ Г¤Г°ГіГЈГіГѕ Г¤Г«Гї ГІГ®ГЈГ®,Г·ГІГ®ГЎГ» ГўГ»Г©ГІГЁ\n\n\n" );
 
 	scanf ( "%d", &control );
 
@@ -101,7 +102,7 @@ char* read( int* len )
 
 int nStrText ( const char* buff, const int len )
 {
-    assert(buff);
+	assert(buff);
 
 	int nLen = 0;
 
@@ -115,8 +116,8 @@ int nStrText ( const char* buff, const int len )
 
 int begstr( char** beg, char* buff )
 {
-    assert(beg);
-    assert(buff);
+    	assert(beg);
+    	assert(buff);
 
 	*beg = buff;
 	*beg++;
@@ -155,21 +156,21 @@ void print(char **text, int nstr)
 
 int compare( const void* beg1, const void* beg2 )
 {
-    int compare = strcmp ( *( char** ) beg1, *( char** ) beg2 );
+    	int compare = strcmp ( *( char** ) beg1, *( char** ) beg2 );
 	return compare;
 }
 
 int compare_end( const void* beg1, const void* beg2 )
 {
-    int compare = strcmpend ( *( char** ) beg1, *( char** ) beg2 );
-    return compare;
+    	int compare = strcmpend ( *( char** ) beg1, *( char** ) beg2 );
+    	return compare;
 }
 
 int strcmpend ( char* beg1,  char* beg2 )
 {
 
 	const char* end1 = beg1 + strlen( beg1 ) - 1;
-    const char* end2 = beg2 + strlen( beg2 ) - 1;
+    	const char* end2 = beg2 + strlen( beg2 ) - 1;
 
 	while ( *end1 < 65 && end1 > beg1 ) end1--;
 	while ( *end2 < 65 && end2 > beg2 ) end2--;
