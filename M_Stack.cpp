@@ -5,6 +5,8 @@
 #include <assert.h>
 #include <cstring>
 
+//Функции
+
 int Stack_construct ( Stack_t * This, int size )
 {
 	assert ( This );
@@ -155,6 +157,7 @@ bool Stack_Rehash(const Stack *This)
 {
 	type buff = This -> protection1 + This -> protection2 + This -> max
 		  + This -> allocator;
+	
 	if ( This -> hash == buff && This -> prot_Date == This -> data ) return 1;
 	else return 0;
 }
