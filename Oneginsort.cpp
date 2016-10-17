@@ -23,17 +23,18 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 
+	//! Контакт
 	int len = 0;
-	char* buf = read ( &len );
+	char* buf = read ( &len );//! int len = readfile( "file.txt", &buf );
 
-	int nstr = nStrText ( buf, len ) + 1;
+	int nstr = nStrText ( buf, len ) + 1; //! countStrings (buf);
 	char** beg = ( char** ) calloc ( nstr, sizeof( char* ) );
 
 	int guestcontrol = 0;
 
-	begstr( beg, buf );
+	begstr( beg, buf ); //! divideStrings
 
-	guestcontrol = greetprint ( );
+	guestcontrol = greetprint ( ); //! getDecision
         control ( guestcontrol, beg, nstr );
 
 	return 0;
@@ -140,7 +141,7 @@ int begstr( char** beg, char* buff )
 	return 0;
 }
 
-void print(char **text, int nstr)
+void print(char **text, int nstr) //! fileName
 {
 	FILE *out = fopen( "out.txt", "w" );
 	assert( out );
