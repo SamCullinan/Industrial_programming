@@ -1,6 +1,7 @@
 #ifndef  M_Stack__H
 #define  M_Stack__H
 
+//DEFINES
 #define  STACK_DUMP ( This )  Stack_dump( This, #This );
 #define  ASSERT_OK  ( This )  if( !Stack_OK ( This ) ) \
 {                                                       \
@@ -11,15 +12,19 @@
 typedef double type;
 
 typedef struct Stack
-{
+{	
 	int protection1;
+	
 	type* data;
 	int   count;
 	int   max;
-	int protection2;
+		
 	type hash;
 	type* prot_Date;
 	bool allocator = 0;
+ 
+	int protection2;
+	
 } Stack_t;
 
 /*Êîíñòàíòû*/
