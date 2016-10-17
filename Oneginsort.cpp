@@ -5,7 +5,7 @@
 #include "io.h"
 #include "clocale"
 
-
+//Функции
 int greetprint  ( );
 void control    ( int control, char** beg, int nstr );
 
@@ -17,7 +17,7 @@ int begstr      ( char** Text, char* buff );
 
 int compare     ( const void* beg1, const void* beg2 );
 int compare_end ( const void* beg1, const void* beg2 );
-int strcmpend ( char* beg1, char* beg2 );
+int strcmpend   ( char* beg1, char* beg2 );
 
 int main()
 {
@@ -102,7 +102,7 @@ char* read( int* len )
 
 int nStrText ( const char* buff, const int len )
 {
-	assert(buff);
+	assert ( buff );
 
 	int nLen = 0;
 
@@ -116,8 +116,8 @@ int nStrText ( const char* buff, const int len )
 
 int begstr( char** beg, char* buff )
 {
-    	assert(beg);
-    	assert(buff);
+    	assert( beg );
+    	assert( buff );
 
 	*beg = buff;
 	*beg++;
@@ -133,6 +133,9 @@ int begstr( char** beg, char* buff )
 		}
 		*buff++;
 	}
+	
+	assert(beg);
+    	assert(buff);
 
 	return 0;
 }
@@ -141,9 +144,10 @@ void print(char **text, int nstr)
 {
 	FILE *out = fopen( "out.txt", "w" );
 	assert( out );
-
+	assert(text);
+	
 	for ( int i = 0; i < nstr; i++ )
-    {
+        {
 		fputs ( *( text + i ), out );
 		fputs ( "\n", out );
 	}
@@ -168,13 +172,18 @@ int compare_end( const void* beg1, const void* beg2 )
 
 int strcmpend ( char* beg1,  char* beg2 )
 {
-
+	assert ( beg1 );
+	assert ( beg2 );
+	
 	const char* end1 = beg1 + strlen( beg1 ) - 1;
     	const char* end2 = beg2 + strlen( beg2 ) - 1;
 
 	while ( *end1 < 65 && end1 > beg1 ) end1--;
 	while ( *end2 < 65 && end2 > beg2 ) end2--;
-
+	
+	assert ( beg1 );
+	assert ( beg2 );
+	
 	while ( end1 > beg1 && end2 > beg2 )
 	{
 		if ( *end1 > *end2 ) return  1;
