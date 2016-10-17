@@ -137,12 +137,12 @@ void Stack_dump( Stack_t *This, char* stk )
 	{
 		if ( i < This -> count )
 		{
-			if ( This -> data[i] )
+			if ( This -> data )
 				printf ( "   *[%d] = %lg\n", i, This -> data[i] );
 		}
 		else
 		{
-			if ( This -> data[i] )
+			if ( This -> data )
 				printf ("   [%d] = %lg  Poison!\n", i, This -> data[i] );
 		}
 	}
