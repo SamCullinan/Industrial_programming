@@ -126,7 +126,7 @@ void Stack_dump( Stack_t *This, char* stk )
 	printf( "=================================\n" );
 
 	if ( Stack_OK( This ) )
-		printf( "Stack_t \"%s\" (Ok) [%p]\n", stk + 1, This );
+		printf( "Stack_t \"%s\" (Ok) [%p]\n", stk, This );
 	else
 		printf( "Stack_t \"[%s]\" (Error) [%p]\n", stk, This );
 
