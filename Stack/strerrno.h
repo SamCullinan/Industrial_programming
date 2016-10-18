@@ -24,6 +24,6 @@ char* strerror(int i)
 
 int perror(int local_errno = errno)
 {
-	printf("%s", strerror(local_errno));
+	printf("\n%s\n", strerror(local_errno));
 	return 1;
 }
