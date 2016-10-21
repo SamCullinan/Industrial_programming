@@ -5,7 +5,7 @@
 #include "io.h"
 #include "clocale"
 
-//=========Functions==========//
+//=========Functions==========// 
 
 int greetprint    ( );
 void makeDecision ( int control, char** beg, int nstr );
