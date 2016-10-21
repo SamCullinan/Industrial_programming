@@ -23,12 +23,12 @@ typedef struct Stack
 	bool allocator = 0;
 } Stack_t;
 
-/*Êîíñòàíòû*/
+/*======Constants=====*/
 
 const int    Error_pos = -666;
 const double Daterror = -666;
 
-/*Ôóíêöèè*/
+/*======Functions=====*/
 
 int  Stack_construct  ( Stack_t *This, int size );
 int  Stack_destruct   ( Stack_t *This );
