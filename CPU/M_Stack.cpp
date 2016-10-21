@@ -7,6 +7,7 @@
 
 int Stack_construct( Stack_t * This, int size )
 {
+	
 	assert( This );
 
 	if ( This -> allocator == 0 )
