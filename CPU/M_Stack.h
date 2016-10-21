@@ -29,7 +29,6 @@ typedef struct Stack
 const int    Error_pos = -666;
 const double Daterror = -666;
 
-
 int  Stack_construct  ( Stack_t *This, int size );
 int  Stack_destruct   ( Stack_t *This );
 
