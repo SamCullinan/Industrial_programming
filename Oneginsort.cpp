@@ -6,6 +6,7 @@
 #include "clocale"
 
 //=========Functions==========//
+
 int greetprint    ( );
 void makeDecision ( int control, char** beg, int nstr );
 
@@ -39,6 +40,7 @@ int main()
 }
 
 //=========Functions==========//
+
 void makeDecision( int control, char** beg, int nstr )
 {
 	char fileName1[ ] = "out1.txt";
@@ -100,7 +102,9 @@ char* readfile( int* len )
 
 	return text;
 }
+
 //=========Operation with strings==========//
+
 int countStrings( const char* buff, const int len )
 {
 	assert( buff );
@@ -140,7 +144,9 @@ int divideStrings( char** beg, char* buff )
 
 	return 0;
 }
+
 //=========Print==========//
+
 void fileprint( char **text, int nstr, char *filename )
 {
 
@@ -160,7 +166,9 @@ void fileprint( char **text, int nstr, char *filename )
 	printf( "Проверь файл!\n" );
 
 }
+
 //=========Compares==========//
+
 int compare( const void* beg1, const void* beg2 )
 {
 	int compare = strcmp( *( char** )beg1, *( char** )beg2 );
