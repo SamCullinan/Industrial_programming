@@ -3,7 +3,7 @@
 #include <math.h>
 #include <locale.h>
 
-// doxygen.org
+// doxygen.org 
 
 //! This constant is the one in the world!!!111!!!111!!!111
 //! @warning Do not use it!!!!
