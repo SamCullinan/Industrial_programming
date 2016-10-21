@@ -108,6 +108,7 @@ int  SqEq ( double a, double b, double c, double *x1, double *x2, int nRoots )
         *x1 = ( -b + d ) / ( 2 * a );
         *x2 = ( -b - d ) / ( 2 * a );
         nRoots = 2;
+	    
     }
     return nRoots;
 }
