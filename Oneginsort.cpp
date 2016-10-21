@@ -5,10 +5,11 @@
 #include "io.h"
 #include "clocale"
 
+//=========Functions==========//
 int greetprint    ( );
-void doDecision   ( int control, char** beg, int nstr);
+void makeDecision ( int control, char** beg, int nstr );
 
-void fileName     ( char **text, int nstr);
+void fileprint    ( char **text, int nstr, char *filename );
 char* readfile    ( int* len );
 
 int countStrings  ( const char* text, const int length );
@@ -18,54 +19,66 @@ int compare       ( const void* beg1, const void* beg2 );
 int compare_end   ( const void* beg1, const void* beg2 );
 int strcmpend     ( char* beg1, char* beg2 );
 
-int main( )
+int main()
 {
 	setlocale( LC_ALL, "Russian" );
 
-	int len = 0;
+	int len   = 0;
 	char* buf = readfile( &len );
 
-	int nstr = countStrings(buf, len) + 1;
-	char** beg = ( char** )calloc( nstr, sizeof( char* ));
+	int nstr   = countStrings( buf, len ) + 1;
+	char** beg = ( char** )calloc( nstr, sizeof( char* ) );
 
 	int getDecision = 0;
 
 	divideStrings( beg, buf );
 	getDecision = greetprint( );
-	doDecision( getDecision, beg, nstr );
+	makeDecision( getDecision, beg, nstr );
 
 	return 0;
 }
 
-void doDecision( int control, char** beg, int nstr )
+//=========Functions==========//
+void makeDecision( int control, char** beg, int nstr )
 {
+	char fileName1[ ] = "out1.txt";
+	char fileName2[ ] = "out2.txt";
+	char fileName3[ ] = "out3.txt";
+
 	switch ( control )
 	{
 	case 1:
-		fileName( beg, nstr );
+
+		fileprint( beg, nstr, fileName1 );
 		break;
 
 	case 2:
+
 		qsort( beg, nstr, sizeof( char* ), compare );
-		fileName(beg, nstr);
+		fileprint( beg, nstr, fileName2 );
 		break;
 
 	case 3:
+
 		qsort( beg, nstr, sizeof( char* ), compare_end );
-		fileName( beg, nstr );
+		fileprint( beg, nstr, fileName3 );
 		break;
 
 	default:
+		printf( "\nВведена неверная команда\n!!!" );	
 		break;
 	}
 }
-int greetprint( )
+int greetprint()
 {
 	int control = 0;
 
+	printf( "Вас приветствует программа \"Стихомания\" @Samir v1.0.3\n" );
+	printf( "Нажмите 1, если хотите оригинальный текст произведения\n" );
+	printf( "Нажмите 2, если хотите применить сортировку \"Евгений Онегин\"\n" );
+	printf( "Нажмите 3, если хотите применить сортировку \"CompareEnd\"\n" );
 
-
-	scanf( "%d", &control  );
+	scanf( "%d", &control );
 
 	return control;
 }
@@ -76,10 +89,10 @@ char* readfile( int* len )
 
 	assert( f );
 
-	*len = filelength( fileno( f ) );
+	*len = filelength( fileno( f ));
 	char* text = ( char* )calloc( *len, sizeof( char ) );
 
-	assert(text);
+	assert( text );
 
 	fread( text, *len, sizeof( char ), f );
 
@@ -87,7 +100,7 @@ char* readfile( int* len )
 
 	return text;
 }
-
+//=========Operation with strings==========//
 int countStrings( const char* buff, const int len )
 {
 	assert( buff );
@@ -104,7 +117,7 @@ int countStrings( const char* buff, const int len )
 
 int divideStrings( char** beg, char* buff )
 {
-	assert( beg  );
+	assert( beg );
 	assert( buff );
 
 	*beg = buff;
@@ -113,7 +126,7 @@ int divideStrings( char** beg, char* buff )
 
 	while ( *buff != '\0' )
 	{
-		if ( *( buff - 1 ) == '\n')
+		if ( *( buff - 1 ) == '\n' )
 		{
 			*beg = buff;
 			*beg++;
@@ -122,16 +135,17 @@ int divideStrings( char** beg, char* buff )
 		*buff++;
 	}
 
-	assert( beg );
+	assert( beg  );
 	assert( buff );
 
 	return 0;
 }
-
-void fileName( char **text, int nstr )
+//=========Print==========//
+void fileprint( char **text, int nstr, char *filename )
 {
-	FILE *out = fopen( "out.txt", "w" );
-	assert( out );
+
+	FILE *out = fopen( filename, "w" );
+	assert( out  );
 	assert( text );
 
 	for ( int i = 0; i < nstr; i++ )
@@ -141,8 +155,12 @@ void fileName( char **text, int nstr )
 	}
 
 	fclose( out );
-}
 
+	printf( "\nРабота успешна выполнена!\n" );
+	printf( "Проверь файл!\n" );
+
+}
+//=========Compares==========//
 int compare( const void* beg1, const void* beg2 )
 {
 	int compare = strcmp( *( char** )beg1, *( char** )beg2 );
@@ -179,3 +197,5 @@ int strcmpend( char* beg1, char* beg2 )
 	}
 	return 0;
 }
+
+//=========Thanks You==========//
