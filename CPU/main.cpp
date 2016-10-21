@@ -4,6 +4,7 @@
 
 int main()
 {
+	
 	setlocale( LC_ALL, "Russian" );
 
 	Stack_t Stack;
@@ -20,4 +21,5 @@ int main()
 
 	system( "pause" );
 	return 0;
+	
 }
