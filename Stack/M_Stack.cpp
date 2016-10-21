@@ -84,7 +84,7 @@ int  Stack_push( Stack_t * This, int value )
 
 	This -> data[ This -> count++ ] = value;
 
-	assert( Stack_OK(This ) );
+	assert( Stack_OK( This ) );
 
 	return 0;
 }
