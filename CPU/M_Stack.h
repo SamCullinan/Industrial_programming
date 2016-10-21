@@ -13,6 +13,7 @@ typedef double type;
 
 typedef struct Stack
 {
+	
 	int protection1;
 	type* data;
 	int   count;
@@ -21,6 +22,7 @@ typedef struct Stack
 	type hash;
 	type* prot_Date;
 	bool allocator = 0;
+	
 } Stack_t;
 
 
