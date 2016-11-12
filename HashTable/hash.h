@@ -24,6 +24,7 @@ unsigned int HashFunc_2(Data* Data);
 unsigned int HashFunc_3(Data* Data);
 unsigned int HashFunc_4(Data* Data);
 unsigned int HashFunc_5(Data* Data);
+unsigned int HashFunc_6(Data* Data);
 
 int HashTab_ctor(HashTab* HashTab, unsigned int(*HashFunc) (Data* Data))
 {
@@ -121,6 +122,10 @@ unsigned int HashFunc_5(Data* Data)
 		h = (h << 1) ^ (unsigned int)Data[i];
 
 	return h;
+}
+unsigned int HashFunc_6(Data* Data)
+{
+	return 0;
 }
 
 int Search( List* List, const Data* Data)
