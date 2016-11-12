@@ -61,6 +61,7 @@ int HashTab_OK(HashTab* HashTab)
 
 int HashTab_Dump(HashTab* HashTab)
 {
+	
 	printf("=====================================\n");
 	printf("HashTab [%p]\n", HashTab);
 	for (int i = 0; i < MAX_HASH; i++)
@@ -68,8 +69,9 @@ int HashTab_Dump(HashTab* HashTab)
 
 	printf("HashFunc [%p]\n", HashTab->HashFunc);
 	printf("======================================\n");
-
+	
 	return 1;
+	
 }
 
 
